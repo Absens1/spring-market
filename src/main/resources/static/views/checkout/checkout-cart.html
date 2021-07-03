@@ -1,0 +1,168 @@
+<!-- Checkout cart -->
+
+<section class="pt-0">
+
+    <!-- Checkout steps -->
+
+    <div class="pt-3 pt-lg-4 pb-5 pb-lg-6 mb-2 mb-lg-3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="steps steps-sm">
+                        <ul class="row">
+                            <li class="col current">
+                                <a href="#!/cart">
+                                    <span class="step-item" data-text="Checkout">
+                                        <span>1</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="col">
+                                <a>
+                                    <span class="step-item" data-text="Login">
+                                        <span>2</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="col">
+                                <a>
+                                    <span class="step-item" data-text="Delivery">
+                                        <span>3</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="col">
+                                <a>
+                                    <span class="step-item" data-text="Payment">
+                                        <span>4</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="col">
+                                <a>
+                                    <span class="step-item" data-text="Receipt">
+                                        <span>5</span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart items -->
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <h2 class="pre-label font-size-base">Cart items</h2>
+
+                <div ng-if="cartDto.items.length == 0" class="alert alert-warning shadow-sm rounded mb-4 p-3 p-lg-4 mb-1 p-md-5">
+                    <h2 class="h6">Cart info</h2>
+                    <p>
+                        Your cart is empty right now. To continue ordering, you must add at least one product to the cart. You can do it <a href="#!/products">here</a>.
+                    </p>
+                </div>
+
+                <div ng-repeat="oi in cartDto.items" class="bg-white shadow-sm rounded mb-3 p-3 alert alert-dismissible" role="alert">
+                    <button ng-click="remProduct(oi.product.id)" type="button" class="close" data-dismiss="alert" aria-label="Close" data-toggle="tooltip" data-placement="top" title="Delete">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="row align-items-center no-gutters p-md-2">
+                        <div class="col-lg-2">
+                            <img src="{{oi.product.image}}" alt="" class="img-fluid" />
+                        </div>
+                        <div class="col-lg-5 pl-lg-3 mb-2 mb-lg-0">
+                            <h2 class="h5 mb-0">{{oi.product.title}}</h2>
+                            <span>{{oi.product.categoryTitle}}</span>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <input type="number"
+                                   min="1"
+                                   value="{{oi.quantity}}"
+                                   ng-model="productQuantity"
+                                   ng-init="productQuantity = oi.quantity"
+                                   ng-change="changeProductQuantity(oi.product.id, productQuantity);"
+                                   class="form-control"
+                                   required/>
+                        </div>
+                        <div class="col-6 col-lg-3 text-right">
+                            <div class="h5 mb-0">${{oi.pricePerProduct * productQuantity}}</div>
+                            <small class="text-muted"><s>${{oi.pricePerProduct * productQuantity}}</s></small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discount and promocode -->
+
+                <div ng-if="cartDto.items.length > 0" class="bg-white shadow-sm rounded mb-3 p-3">
+                    <div class="row align-items-center no-gutters p-md-2">
+
+                        <div class="col-lg-7">
+                            <div class="py-2">
+                                <label>Promo code:</label>
+                                <input type="text" value="" class="form-control form-control-sm w-auto" name="couponcode" id="couponcode" placeholder="Coupon code" />
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <div class="row no-gutters">
+                                <div class="col-6">
+                                    <b>Discount 0%</b>
+                                </div>
+                                <div class="col-6 text-right">
+                                    $ 00,00
+                                </div>
+                                <div class="col-6">
+                                    <b>Shipping</b>
+                                </div>
+                                <div class="col-6 text-right">
+                                    $ 00,00
+                                </div>
+                                <div class="col-6">
+                                    <b>Vat</b>
+                                </div>
+                                <div class="col-6 text-right">
+                                    $ 00,00
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Total price -->
+
+                <div ng-if="cartDto.items.length > 0" class="bg-white shadow-sm rounded mb-2 p-3">
+                    <div class="p-md-4">
+                        <div class="row no-gutters">
+                            <div class="col-6">
+                                <div class="h4 mb-0">Total price</div>
+                            </div>
+                            <div class="col-6 text-right">
+                                <div class="h4 mb-0">$ {{cartSum}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+
+                <div class="py-3">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-6">
+                            <a href="#!/products" class="btn btn-dark btn-primary btn-rounded px-lg-5">Shop more</a>
+                        </div>
+                        <div ng-if="cartDto.items.length > 0" class="col-6 text-right">
+                            <a ng-href="#!/{{nextStepPath}}" class="btn btn-primary btn-rounded px-lg-5">Next step</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

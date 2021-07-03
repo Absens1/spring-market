@@ -1,0 +1,173 @@
+<section class="pt-3">
+    <div class="container">
+        <div class="row">
+
+            <!-- Product gallery -->
+
+            <div class="col-lg-8">
+                <div class="mb-2">
+                    <img style="width:100%" class="img-fluid br-sm" src="{{product.image}}" alt="" />
+                </div>
+            </div>
+
+            <!-- Product info -->
+
+            <div class="col-lg-4">
+
+                <div class="sticky-top" style="top:180px">
+                    <div class="bg-white shadow-sm br-sm p-3 p-lg-4">
+                        <!-- Product order -->
+
+                        <div class="clearfix">
+
+                            <!-- Product price -->
+
+                            <div class="h2 mb-0">
+                                <span>$ {{product.price}}</span>
+                                <small>
+                                    <del>$ {{product.price}}</del>
+                                </small>
+                            </div>
+
+                            <hr />
+
+                            <!-- Product brand -->
+
+                            <div class="row">
+                                <div class="col-6 col-lg-12">
+                                    <div class="row mb-2">
+                                        <div class="col-xl-4">
+                                            <span class="text-muted">Manifacturer</span>
+                                        </div>
+                                        <div class="col-xl-8">Sony</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-12">
+                                    <div class="row mb-2">
+                                        <div class="col-xl-4">
+                                            <span class="text-muted">Category</span>
+                                        </div>
+                                        <div class="col-xl-8">{{product.categoryTitle}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-12">
+                                    <div class="row mb-2">
+                                        <div class="col-xl-4">
+                                            <span class="text-muted">Shipping</span>
+                                        </div>
+                                        <div class="col-xl-8">
+                                            <i class="icon icon-checkmark-circle"></i> Free shipping
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-12">
+                                    <div class="row mb-2">
+                                        <div class="col-xl-4">
+                                            <span class="text-muted">Availability</span>
+                                        </div>
+                                        <div class="col-xl-8">
+                                            <i class="icon icon-checkmark-circle"></i> In stock
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <!-- Product size -->
+
+                            <div class="mb-2">
+                                <div class="text-muted pre-label mb-2">
+                                    <small>Choose size</small>
+                                </div>
+                                <div class="btn-group-toggle w-100" data-toggle="buttons">
+                                    <label class="btn btn-outline-primary btn-icon btn-icon-sm p-1 active">
+                                        <input type="radio" name="options" id="size-option1" checked="checked"> XS
+                                    </label>
+                                    <label class="btn btn-outline-primary btn-icon btn-icon-sm p-1">
+                                        <input type="radio" name="options" id="size-option2"> &nbsp;S&nbsp;
+                                    </label>
+                                    <label class="btn btn-outline-primary btn-icon btn-icon-sm p-1">
+                                        <input type="radio" name="options" id="size-option3"> &nbsp;M&nbsp;
+                                    </label>
+                                    <label class="btn btn-outline-primary btn-icon btn-icon-sm p-1">
+                                        <input type="radio" name="options" id="size-option4"> &nbsp;L&nbsp;
+                                    </label>
+                                    <label class="btn btn-outline-primary btn-icon btn-icon-sm p-1">
+                                        <input type="radio" name="options" id="size-option5"> &nbsp;XL&nbsp;
+                                    </label>
+                                    <label class="btn btn-outline-primary btn-icon btn-icon-sm p-1">
+                                        <input type="radio" name="options" id="size-option6"> XXL&nbsp;
+                                    </label>
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <!-- Product colors -->
+
+                            <div class="mb-2">
+                                <div class="text-muted pre-label mb-2">
+                                    <small>Choose color</small>
+                                </div>
+                                <div class="btn-group-toggle w-100" data-toggle="buttons">
+                                    <label class="btn btn-color btn-color-orange my-1">
+                                        <input type="radio" name="options" id="color-option10">
+                                    </label>
+                                    <label class="btn btn-color btn-color-red my-1">
+                                        <input type="radio" name="options" id="color-option3">
+                                    </label>
+                                    <label class="btn btn-color btn-color-green my-1">
+                                        <input type="radio" name="options" id="color-option4">
+                                    </label>
+                                    <label class="btn btn-color btn-color-yellow my-1">
+                                        <input type="radio" name="options" id="color-option9">
+                                    </label>
+                                    <label class="btn btn-color btn-color-indigo my-1">
+                                        <input type="radio" name="options" id="color-option8">
+                                    </label>
+                                    <label class="btn btn-color btn-color-pink my-1">
+                                        <input type="radio" name="options" id="color-option5">
+                                    </label>
+                                    <label class="btn btn-color btn-color-purple my-1">
+                                        <input type="radio" name="options" id="color-option6">
+                                    </label>
+                                    <label class="btn btn-color btn-color-blue my-1">
+                                        <input type="radio" name="options" id="color-option7">
+                                    </label>
+                                    <label class="btn btn-color btn-color-cian my-1">
+                                        <input type="radio" name="options" id="color-option11">
+                                    </label>
+                                    <label class="btn btn-color btn-color-aqua my-1">
+                                        <input type="radio" name="options" id="color-option12">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="mb-2">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <input ng-model="productQuantity" type="number" min="1" class="form-control mr-2" value="productQuantity">
+                                    </div>
+                                    <div class="col-7">
+                                        <button ng-click="addToCart()" class="btn btn-block btn-primary">
+                                            <i class="icon icon-cart"></i> Add to cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Product details -->
+
+<section class="bg-white">

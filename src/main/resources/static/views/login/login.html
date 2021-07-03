@@ -1,0 +1,132 @@
+<!-- login &amp; register -->
+
+<section class="pt-0">
+
+    <!-- Login &amp; register -->
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-8">
+                <div class="accordion" id="accordion1">
+
+                    <!-- Checkout registration -->
+
+                    <div class="card card-panel bg-white shadow-sm mb-2">
+
+                        <div class="card-header py-4 bg-white" role="button" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <h2 class="h4 mb-0">Register now</h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion1">
+                            <div class="card-body p-0">
+                                <hr class="m-0">
+                                <div class="p-4 p-md-6">
+                                    <form id="regForm" ng-submit="tryToReg()">
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" ng-model="regUser.firstName" class="form-control form-control-simple" placeholder="First name: *">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" ng-model="regUser.lastName" class="form-control form-control-simple" placeholder="Last name: *">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input ng-model="regUser.username" type="text" class="form-control form-control-simple" placeholder="Email: *">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input ng-model="regUser.password" type="password" class="form-control form-control-simple" placeholder="Password: *">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input ng-model="regUser.repeatedPassword" type="password" class="form-control form-control-simple" placeholder="Repeat password: *">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+
+                                                <div class="custom-control custom-checkbox custom-checkbox-primary py-2">
+                                                    <input type="checkbox" class="custom-control-input" id="customExampleCheck1">
+                                                    <label class="custom-control-label" for="customExampleCheck1">
+                                                        I have read and accepted the <a href="#">terms and conditions</a>
+                                                    </label>
+                                                </div>
+
+                                                <div class="custom-control custom-checkbox custom-checkbox-primary py-2">
+                                                    <input type="checkbox" class="custom-control-input" id="customExampleCheck2">
+                                                    <label class="custom-control-label" for="customExampleCheck2">
+                                                        Subscribe to exciting newsletters and great tips
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12 text-right py-4">
+                                                <button type="submit" class="btn btn-primary">Create an account</button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkout login -->
+
+                    <div class="card card-panel bg-white shadow-sm mb-2">
+
+                        <div class="card-header py-4 collapsed bg-white" role="button" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">
+                            <h2 class="h4 mb-0"> Already member?</h2>
+                        </div>
+
+                        <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion1">
+                            <div class="card-body p-0">
+                                <hr class="m-0">
+                                <div class="p-4 p-md-6">
+                                    <form id="authForm" ng-submit="tryToAuth()">
+                                        <div class="row justify-content-center py-4">
+                                            <div class="col-md-8">
+
+                                                <div class="form-group">
+                                                    <input ng-model="user.username" type="text" class="form-control form-control-simple" placeholder="Email">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <input ng-model="user.password" type="password" class="form-control form-control-simple" placeholder="Password">
+                                                </div>
+
+                                                <div class="custom-control custom-checkbox custom-checkbox-primary py-2">
+                                                    <input type="checkbox" class="custom-control-input" id="rememberCheck">
+                                                    <label class="custom-control-label" for="rememberCheck">
+                                                        Remember me
+                                                    </label>
+                                                </div>
+
+                                                <div class=" text-right py-4">
+                                                    <button type="submit" class="btn btn-dark">Sign in</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

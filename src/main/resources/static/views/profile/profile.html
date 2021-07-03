@@ -1,0 +1,231 @@
+<!-- Profile dashboard -->
+
+<section class="pt-0">
+    <div class="container">
+        <div class="row">
+
+            <!-- Menu sidebar -->
+
+            <div class="col-lg-3">
+
+                <div class="br-sm pr-lg-4 mt-xl-n6">
+
+                    <!-- Profile menu header -->
+
+                    <div class="py-3 py-lg-4">
+                        <div class="row align-items-center justify-content-center no-gutters text-lg-center">
+                            <div class="col-9 col-lg-12">
+                                <div class="d-flex flex-lg-column align-items-center">
+                                    <div class="pr-3 pr-lg-0">
+                                        <img src="assets/images/demo/user-5.jpg" alt="" class="rounded-circle mb-lg-2 img-fluid" style="width: 50px;">
+                                    </div>
+                                    <div>
+                                        <div ng-show="user.firstName != null && user.lastName!= null" class="h5 m-0">{{user.firstName + " " + user.lastName}}</div>
+                                        <div class="text-muted">{{user.username}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 d-lg-none text-right">
+                                <button class="btn btn-icon btn-primary btn-sm toggle-show" data-show="open-profile-sidebar">
+                                    <i class="icon icon-text-align-center"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile sidebar -->
+
+                    <div class="sidebar sidebar-mobile" id="open-profile-sidebar">
+                        <div class="sidebar-content">
+
+                            <div class="sidebar-header clearfix d-lg-none">
+                                <button type="button" class="close toggle-show p-3" data-show="open-profile-sidebar" aria-label="Close">
+                                    <i class="icon icon-cross font-size-lg"></i>
+                                </button>
+                            </div>
+
+                            <!-- Profile account links -->
+
+                            <div class="mb-4 px-4 p-lg-0">
+                                <ul class="list-group list-group-clean">
+
+                                    <li class="list-group-item text-muted d-flex justify-content-between align-items-center">
+                                        <label class="pre-label">Account</label>
+                                    </li>
+
+                                    <li class="list-group-item  active">
+                                        <a href="#!/profile">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span><i class="icon icon-user mr-2"></i>
+                                                    <span>Profile account</span>
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                            <!-- Profile dashboard links -->
+
+                            <div class="mb-4 px-4 p-lg-0">
+                                <ul class="list-group list-group-clean">
+
+                                    <li class="list-group-item text-muted d-flex justify-content-between align-items-center">
+                                        <label class="pre-label">Dashboard</label>
+                                    </li>
+
+                                    <li class="list-group-item ">
+                                        <a href="#!/orders">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span><i class="icon icon-cart mr-2"></i>
+                                                    <span>Orders</span>
+                                                </span>
+                                                <span class="badge badge-pill">{{ordersCount}}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <!-- Profile reset -->
+
+                            <div class="mb-4 px-4 p-lg-0">
+                                <ul class="list-group list-group-clean">
+
+                                    <li class="list-group-item text-muted d-flex justify-content-between align-items-center">
+                                        <label class="pre-label">Access</label>
+                                    </li>
+
+                                    <li class="list-group-item ">
+                                        <a href="#!/reset-password">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span><i class="icon icon-lock mr-2"></i>
+                                                    <span>Reset password</span>
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <a ng-click="tryToLogout()" href="#/login">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span><i class="icon icon-enter-down mr-2"></i>
+                                                    <span>Sign out</span>
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Dashboard details -->
+
+            <div class="col-lg-9 pt-lg-4">
+
+                <h2 class="pre-label font-size-base">Avatar settings</h2>
+                <div class="bg-white p-4 p-lg-5 br-sm shadow-sm mb-3 mb-lg-5">
+                    <div>
+                        <div class="media d-block d-sm-flex align-items-center">
+                            <img src="assets/images/demo/user-5.jpg" class="d-block rounded-circle mx-auto mb-3 mb-sm-0" width="110" alt="John Doe">
+                            <div class="media-body pl-sm-3 text-center text-sm-left">
+                                <button class="btn btn-rounded btn-outline-primary btn-sm px-3 mb-2" type="button">
+                                    <i class="icon icon-sync"></i> Change avatar
+                                </button>
+                                <div>
+                                    <small class="text-muted">Upload JPG, GIF or PNG image. 100 x 100 required.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="pre-label font-size-base">Profile details</h2>
+
+                <div class="bg-white p-4 p-lg-5 br-sm shadow-sm mb-3 mb-lg-5">
+
+                    <form class="row" ng-submit="changeUserInfo()">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="pre-label pre-label-sm" for="account-fn">First Name</label>
+                                <input class="form-control form-control-simple" type="text" ng-model="user.firstName" id="account-fn" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="pre-label pre-label-sm" for="account-ln">Last Name</label>
+                                <input class="form-control form-control-simple" type="text" id="account-ln" ng-model="user.lastName" required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                <button class="btn btn-rounded btn-outline-primary btn-sm px-3 mt-3 mt-sm-0">
+                                    <i class="fa fa-save mr-2"></i>Save changes
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+                <h2 class="pre-label font-size-base">Shipping details</h2>
+
+                <div class="bg-white p-4 p-lg-5 br-sm shadow-sm mb-3 mb-lg-5">
+
+                    <form class="row" ng-submit="changeUserShippingInfo()">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="pre-label pre-label-sm" for="account-country">Country</label>
+                                <select class="custom-select form-control-simple" id="account-country" ng-model="userShippingInfo.country" required>
+                                    <option value="Argentina">Argentina</option>
+                                    <option value="Belgium">Belgium</option>
+                                    <option value="France">France</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="Madagascar">Madagascar</option>
+                                    <option value="Spain">Spain</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="USA">USA</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="pre-label pre-label-sm" for="account-city">City</label>
+                                <input class="form-control form-control-simple" type="text" id="account-city" ng-model="userShippingInfo.city" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="pre-label pre-label-sm" for="account-address">Address Line</label>
+                                <input class="form-control form-control-simple" type="text" id="account-address" ng-model="userShippingInfo.address" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="pre-label pre-label-sm" for="account-zip">ZIP Code</label>
+                                <input class="form-control form-control-simple" type="text" id="account-zip" ng-model="userShippingInfo.zipCode" required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                <button class="btn btn-rounded btn-outline-primary btn-sm px-3 mt-3 mt-sm-0">
+                                    <i class="fa fa-save mr-2"></i>Save changes
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

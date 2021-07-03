@@ -1,0 +1,181 @@
+<!-- Checkout receipt -->
+
+<section class="pt-0">
+
+    <!-- Checkout steps -->
+
+    <div class="pt-3 pt-lg-4 pb-5 pb-lg-6 mb-2 mb-lg-3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="steps steps-sm">
+                        <ul class="row">
+                            <li class="col active">
+                                <a href="#!/cart">
+                                    <span class="step-item" data-text="Checkout">
+                                        <span>1</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="col active">
+                                <a>
+                                    <span class="step-item" data-text="Login">
+                                        <span>2</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="col active">
+                                <a>
+                                    <span class="step-item" data-text="Delivery">
+                                        <span>3</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="col active">
+                                <a>
+                                    <span class="step-item" data-text="Payment">
+                                        <span>4</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="col current">
+                                <a href="#!/receipt/{{orderId}}">
+                                    <span class="step-item" data-text="Receipt">
+                                        <span>5</span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Receipt -->
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-8">
+
+                <div class="alert alert-primary shadow-sm rounded alert-dismissible fade show p-3 p-lg-4 mb-5 p-md-5" role="alert">
+                    <h2 class="h6 mb-0">Your order is completed!</h2>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Receipt shipping info -->
+
+                <h2 class="pre-label font-size-base">Shipping info</h2>
+
+                <div class="bg-white shadow-sm rounded mb-3 p-3 p-md-5">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <small class="pre-label">Name</small>
+                                <p>{{shippingInfo.firstName + " " + shippingInfo.lastName}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <small class="pre-label">Country</small>
+                                <p>{{shippingInfo.country}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <small class="pre-label">City</small>
+                                <p>{{shippingInfo.city}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <small class="pre-label">Address</small>
+                                <p>{{shippingInfo.address}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <small class="pre-label">Zip</small>
+                                <p>{{shippingInfo.zipCode}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Receipt Order details -->
+
+                <h2 class="pre-label font-size-base">Order details</h2>
+
+                <div class="bg-white shadow-sm rounded mb-3 p-3 p-md-5">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <small class="pre-label">Order no.</small>
+                                <p>{{order.id}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <small class="pre-label">Delivery type</small>
+                                <p>{{order.deliveryTypeTitle}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <small class="pre-label">Transaction time</small>
+                                <p>{{order.transactionTime}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <small class="pre-label">Amount</small>
+                                <p>$ {{order.price}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <small class="pre-label">Total items</small>
+                                <p>{{order.items.length}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <small class="pre-label">Cart details</small>
+                                <p>{{order.cartNumber}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Buttons -->
+
+                <div class="py-3">
+                    <div class="row align-items-center no-gutters">
+                        <div class="text-right">
+                            <a href="#!/orders" class="btn btn-primary btn-rounded px-lg-5">My whishlist</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

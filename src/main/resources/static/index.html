@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Mobile Web-app fullscreen -->
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Meta tags -->
+
+    <meta name="description" content="Extended Bootstrap 4 Template">
+    <meta name="author" content="Goran Hrustic">
+    <link rel="icon" href="assets/svg/favicon.ico">
+
+    <!-- Title -->
+
+    <title>Reveal - Product grid</title>
+
+    <!-- Vendor stylesheets -->
+
+    <link rel="stylesheet" media="all" href="css/vendor/animate.css" />
+    <link rel="stylesheet" media="all" href="css/vendor/font-awesome.css" />
+    <link rel="stylesheet" media="all" href="css/vendor/linear-icons.css" />
+    <link rel="stylesheet" media="all" href="css/vendor/owl.carousel.css" />
+    <link rel="stylesheet" media="all" href="css/vendor/jquery.lavalamp.css" />
+
+    <!-- Template stylesheets -->
+
+    <link rel="stylesheet" media="all" href="css/style.css" />
+
+    <!--HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+</head>
+
+<body ng-controller="indexController">
+    <div class="loader">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Main navigation -->
+    
+    <nav class="navbar navbar-expand-lg navbar-sticky navbar-dark">
+        <div class="container">
+    
+            <!-- Logo -->
+    
+            <a class="navbar-brand mr-1" href="#!/">
+                <img src="assets/svg/reveal-logo.svg" alt="">
+            </a>
+    
+            <!-- Collapse -->
+    
+            <div class="collapse navbar-collapse navbar-collapse-sidebar" id="mainNavbar">
+
+                <!-- Navbar links -->
+    
+                <ul class="navbar-nav ml-auto">
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!/products">Products</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!/cart">Cart</a>
+                    </li>
+
+                    <!-- Single dropdown -->
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" id="account" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Account
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="account">
+                            <a class="dropdown-item" href="#!/profile">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <span class="px-1 text-primary">
+                                            <i class="icon icon-user"></i>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <div class="px-2">
+                                            <p>Profile page</p>
+                                            <span class="label">User profile</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#!/orders">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <span class="px-1 text-primary">
+                                            <i class="icon icon-tag"></i>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <div class="px-2">
+                                            <p>My Orders</p>
+                                            <span class="label">Order history</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- Navbar toggler -->
+
+            <div class="d-flex align-items-center">
+                <a class="btn btn-sm btn-primary btn-rounded ml-lg-4 px-3" href="#!/{{navButtonLink}}">
+                    <i class="icon icon-user"></i> {{navButtonInfo}}
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon icon-menu"></span>
+                </button>
+            </div>
+
+        </div>
+    </nav>
+
+    <header class="header header-main header-sticky bg-dark">
+        <div class="pb-2 py-lg-3">
+            <div class="container text-light">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h2 class="mb-0 h4">Test page</h2>
+                        <small class="pre-label d-none d-lg-block">Test preview</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SVG Divider -->
+    
+    <section class="divider bg-dark">
+        <svg class="svg svg-light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="100" viewBox="0 0 1920 100" preserveAspectRatio="none meet">
+            <path d="M0,11S168.915,69.242,406.27,70.7,685.853,57.593,850.4,37.207,1259.752,73.448,1517.323,70.7,1920,19.667,1920,19.667V101H0Z" transform="translate(0 -1)" />
+            <path d="M1920,102.048s-89.6,137.879-398.308,19.053c-162.379-62.5-391.708,20.855-598.484,20.855-206.775,22.449-295.6-77.886-503.833-39.909C286.864,132.511,0,110.668,0,110.668v62.337H1920Z" transform="translate(0 -73.005)" fill-opacity=".2" />
+            <path d="M0,102.147S407.045,189.7,555.574,121.265C717.953,58.549,760.893,69.884,840.982,85.957c188.351,79.39,348.351-56.61,532.351,70.057C1489,91.538,1920,110.8,1920,110.8v62.551H0Z" transform="translate(0 -73.347)" fill-opacity=".4" />
+        </svg>
+    </section>
+
+    <ng-view></ng-view>
+
+    <!-- Footer -->
+    
+    <footer class="bg-dark text-white">
+            <div class="pt-5 text-muted text-center">
+                <div class="mb-3"><img src="assets/svg/reveal-logo.svg" alt=""></div>
+                <div><small class="text-muted pre-label">A bold visual experience</small></div>
+                <small>All rights reserved 2020 © Absens</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vendor Scripts -->
+
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/bootstrap.bundle.js"></script>
+    <script src="js/vendor/in-view.min.js"></script>
+    <script src="js/vendor/jquery.lavalamp.js"></script>
+    <script src="js/vendor/owl.carousel.js"></script>
+    <script src="js/vendor/rellax.js"></script>
+    <script src="js/vendor/wow.js"></script>
+    <script src="js/vendor/tabzy.js"></script>
+    <script src="js/vendor/isotope.pkgd.js"></script>
+
+    <!-- Template Scripts -->
+
+    <script src="js/main.js"></script>
+    <script src="js/custom.js"></script>
+
+
+    <script src="index.js"></script>
+    <script src="views/login/loginController.js"></script>
+    <script src="views/profile/profileController.js"></script>
+    <script src="views/profile/profileOrdersController.js"></script>
+    <script src="views/profile/profileResetPasswordController.js"></script>
+    <script src="views/product/productsController.js"></script>
+    <script src="views/product/productController.js"></script>
+    <script src="views/checkout/deliveryService.js"></script>
+    <script src="views/checkout/cartController.js"></script>
+    <script src="views/checkout/chLoginController.js"></script>
+    <script src="views/checkout/deliveryController.js"></script>
+    <script src="views/checkout/paymentController.js"></script>
+    <script src="views/checkout/receiptController.js"></script>
+    </body>
+
+</html>
