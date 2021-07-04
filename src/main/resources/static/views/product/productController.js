@@ -19,12 +19,11 @@ angular.module('app').controller('productController', function ($scope, $http, $
             url: contextPath + '/api/v1/cart/add',
             method: 'GET',
             params: {
-                cartId: 'cart',
+                cartId: $localStorage.cartId,
                 p: $routeParams.id,
                 q: $scope.productQuantity
             }
         }).then(function (response) {
-            console.log("Product with id="+ productId + " x" + quantity + " was added to cart");
         });
     }
 
