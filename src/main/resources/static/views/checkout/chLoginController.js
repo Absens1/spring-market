@@ -26,6 +26,9 @@ angular.module('app').controller('chLoginController', function ($scope, $http, $
                 if (response.data.token) {
                     $http.defaults.headers.common.Authorization = 'Bearer ' + response.data.token;
                     $localStorage.currentUser = {username: $scope.user.username, token: response.data.token};
+
+                    $scope.mergeCarts();
+
                     $scope.user.username = null;
                     $scope.user.password = null;
 
